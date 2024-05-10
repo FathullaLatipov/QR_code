@@ -1,12 +1,15 @@
 from django.shortcuts import render
 import qrcode
 
+from .models import Product
+
+
 def generate_qr(request):
     name = "Ручка"
     description = "Ручка для письма"
     price = "200"
 
-    url = f"https://ab6d-212-115-114-108.ngrok-free.app/product_info/?name={name}&description={description}&price={price}"
+    url = f" https://d173-213-230-80-68.ngrok-free.app/product_info/?name={name}&description={description}&price={price}"
 
     qr = qrcode.QRCode(
         version=1,
@@ -23,13 +26,21 @@ def generate_qr(request):
     return render(request, 'qrapp/generate_qr.html', {'url': url})
 
 
-def product_info(request):
-    name = request.GET.get('name')
-    description = request.GET.get('description')
-    price = request.GET.get('price')
+# def product_info(request):
+#     name = request.GET.get('name')
+#     description = request.GET.get('description')
+#     price = request.GET.get('price')
+#
+#     return render(request, 'qrapp/product_info.html', {
+#         'name': name,
+#         'description': description,
+#         'price': price,
+#     })
 
-    return render(request, 'qrapp/product_info.html', {
-        'name': name,
-        'description': description,
-        'price': price,
-    })
+def product_info(request):
+    return render(request, 'qrapp/product_info.html')
+
+
+def generate_home(request):
+    products = Product.objects.all()
+    return render(request, 'qrapp/home.html', {'products': products})
