@@ -5,16 +5,8 @@
 </head>
 <body>
     <h1>Product Information</h1>
-    <p>Название: <span id="name"></span></p>
-    <p>Описание: <span id="description"></span></p>
-    <p>Цена: <span id="price"></span></p>
-
-    <script>
-        // Получение параметров из URL
-        const urlParams = new URLSearchParams(window.location.search);
-        document.getElementById("name").innerText = urlParams.get("name");
-        document.getElementById("description").innerText = urlParams.get("description");
-        document.getElementById("price").innerText = urlParams.get("price");
-    </script>
+    <h1>Name: {{ product.name }}</h1>
+    <p>Description: {{ product.description }}</p>
+    <p>Price: {{ product.price }}</p>
 </body>
 </html>

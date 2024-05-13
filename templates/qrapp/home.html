@@ -4,13 +4,16 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>Products</h1>
-    {% for product in products %}
+
+    <div class="products" style="text-align: center">
+            <h1>Your Products</h1>
+             {% for product in products %}
         <img src="{{ product.qr_code.url }}" alt="{{ product.name }} QR Code"><br>
         <p>Название: {{ product.name }}</p>
         <p>Описание: {{ product.description }}</p>
         <p>Цена: {{ product.price }}</p>
         <hr>
     {% endfor %}
+    </div>
 </body>
 </html>
