@@ -15,7 +15,7 @@ class Product(models.Model):
         if self.pk is None:
             super().save(*args, **kwargs)  # Сначала сохраняем объект, чтобы у него был установлен pk
 
-        data = f"https://35bc-212-115-114-108.ngrok-free.app/product_info/{self.pk}"
+        data = f"https://051e-212-115-114-108.ngrok-free.app/product_info/{self.pk}"
         qr = qrcode.QRCode(
             version=1,
             error_correction=qrcode.constants.ERROR_CORRECT_L,
